@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raj Jaiswal | Data Scientist</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --primary: #38bdf8;
+      --text: #f1f5f9;
+      --accent: #7c3aed;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--card);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      position: absolute;
+      width: 26px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 4px;
+      transition: 0.3s ease;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 10px; }
+    .hamburger span:nth-child(3) { top: 20px; }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 10px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        background-color: var(--card);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 5rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+
+      nav.show {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 130px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .typing-wrapper {
+      display: inline-block;
+      font-size: 1.3rem;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: var(--primary);
+      margin-left: 2px;
+      animation: blink 0.8s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+
+    .quick-info {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .quick-info h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.6rem;
+      background: var(--primary);
+      color: #0f172a;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: var(--card);
+      margin-top: 4rem;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .typing-wrapper {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <div class="logo">Portfolio</div>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav id="nav-links">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="projects.html" onclick="toggleMenu()">Projects</a>
+      <a href="resume.html" onclick="toggleMenu()">Skills</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="section hero">
+    <img src="photo.jpeg" alt="Raj Jaiswal" class="avatar" />
+    <h1>Hello, I'm Raj Jaiswal</h1>
+
+    <div class="typing-wrapper">
+      <span id="typing"></span><span class="cursor"></span>
+    </div>
+
+    <p style="margin-top: 1.5rem;">
+      I'm a data enthusiast who enjoys building intelligent systems that solve real-world problems.  
+      After building a strong foundation in machine learning, I’m currently exploring deep learning and generative AI to advance my skills in solving complex data-driven problems.
+    </p>
+    <a class="btn" href="projects.html">View My Work</a>
+  </section>
+
+  <!-- ===== INFO ===== -->
+  <section class="section quick-info">
+    <h3>What I Do</h3>
+    <p>
+      I’m pursuing a B.Tech in Computer Science (2023–2027) at Jaypee University Anoopshahr.  
+      My core interest lies in applying machine learning and natural language processing to practical, real-world challenges.  
+      I enjoy working with both structured and unstructured data, building predictive models, and translating insights into impactful solutions.
+    </p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>© 2025 Raj Jaiswal</footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    const words  = ["Data Scientist", "CS Engineer"];
+    const speed  = 120;
+    const delay  = 1500;
+    const target = document.getElementById("typing");
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting  = false;
+
+    function typeLoop() {
+      const currentWord = words[wordIndex];
+      if (!deleting) {
+        target.textContent = currentWord.slice(0, ++charIndex);
+        if (charIndex === currentWord.length) {
+          deleting = true;
+          setTimeout(typeLoop, delay);
+          return;
+        }
+      } else {
+        target.textContent = currentWord.slice(0, --charIndex);
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+      setTimeout(typeLoop, speed);
+    }
+    typeLoop();
+
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      const burger = document.getElementById("hamburger");
+      nav.classList.toggle("show");
+      burger.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

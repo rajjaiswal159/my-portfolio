@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Raj Jaiswal</title>
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --primary: #38bdf8;
+      --text: #f1f5f9;
+      --accent: #7c3aed;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--card);
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      position: absolute;
+      width: 26px;
+      height: 3px;
+      background: var(--text);
+      border-radius: 4px;
+      transition: 0.3s ease;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 10px;
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 20px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 10px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 10px;
+    }
+
+    /* === SIDEBAR for MOBILE === */
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        background-color: var(--card);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 5rem 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+      }
+
+      nav.show {
+        right: 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    footer {
+      background: var(--card);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #ccc;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+    }
+    a {
+  text-decoration: none;  /* Removes underline */
+  color: inherit;         /* Inherits color from parent */
+}
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <div class="logo">Portfolio</div>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+
+    <nav id="nav-links">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="projects.html" onclick="toggleMenu()">Projects</a>
+      <a href="resume.html" onclick="toggleMenu()">Skills</a>
+      <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section contact">
+    <h2 class="section-title">Contact Me</h2>
+    <p>📧 <strong>rajjeswal30@gmail.com</strong></p>
+    <p>📍 Dibai, Uttar Pradesh, India</p>
+    <p><a href="https://www.linkedin.com/in/raj-jaiswal-45604330a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">💼 <strong>LinkedIn</strong></a> | <a href="https://github.com/rajjaiswal159"><strong>GitHub</strong></a></p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>© 2025 Raj Jaiswal</footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-links");
+      const hamburger = document.getElementById("hamburger");
+      nav.classList.toggle("show");
+      hamburger.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>

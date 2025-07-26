@@ -1,0 +1,160 @@
+:root {
+  --bg: #0f0f0f;
+  --card: #1c1c1c;
+  --primary: #00e676;
+  --text: #e0e0e0;
+  --accent: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  padding: 1.5rem 2rem;
+  background: var(--card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+nav a {
+  color: var(--text);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.avatar {
+  width: 130px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.projects {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.project-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--accent);
+}
+.project-card:hover {
+  transform: scale(1.03);
+  border-color: var(--primary);
+}
+.project-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--primary);
+  color: #000;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  background: var(--card);
+  margin-top: 4rem;
+}
+
+/* ─── Header & Logo ─── */
+header {
+  padding: 1.5rem 2rem;
+  background: #1c1c1c;        /* or your existing var */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+}
+
+/* Links */
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #e0e0e0;             /* or var(--text) */
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover { color: #00e676; }  /* or var(--primary) */
+
+/* ─── Hamburger icon ─── */
+.hamburger {
+  display: none;              /* Hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger span {
+  width: 26px;
+  height: 3px;
+  background: #e0e0e0;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+/* ─── Mobile layout ─── */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1c1c1c;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0 1.5rem;
+    display: none;            /* Closed by default */
+  }
+  nav.show { display: flex; }
+
+  .hamburger { display: flex; }
+}
