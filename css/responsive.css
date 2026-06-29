@@ -1,0 +1,90 @@
+/*==========================
+TABLETS & MOBILE
+===========================*/
+
+@media (max-width:900px){
+
+    .hero-content{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+    }
+
+    .hero-description{
+
+        margin:auto;
+        margin-bottom:35px;
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+    }
+
+    .about-content{
+
+        grid-template-columns:1fr;
+    }
+
+    .project-card{
+
+        grid-template-columns:1fr;
+    }
+
+    .project-card.reverse{
+
+        direction:ltr;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+
+        display:block;
+
+        z-index:1001;
+    }
+
+    .resume-btn{
+
+        display:none;
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        top:75px;
+
+        right:-100%;
+
+        width:260px;
+
+        height:calc(100vh - 75px);
+
+        background:#111827;
+
+        display:flex;
+
+        flex-direction:column;
+
+        justify-content:flex-start;
+
+        align-items:center;
+
+        padding-top:40px;
+
+        gap:30px;
+
+        transition:.35s;
+    }
+
+    .nav-links.active{
+
+        right:0;
+    }
+
+}
